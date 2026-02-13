@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Editar Mi Perfil</h2>
+<mat-dialog-content>
+    <form [formGroup]="formProfile" class="profile-form">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre Completo</mat-label>
+            <input matInput formControlName="name" placeholder="Tu nombre">
+            <mat-icon matPrefix>person</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Teléfono</mat-label>
+            <input matInput formControlName="phone" placeholder="Tu teléfono">
+            <mat-icon matPrefix>phone</mat-icon>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="saveChanges()" [disabled]="formProfile.invalid">Guardar</button>
+</mat-dialog-actions>

@@ -1,0 +1,41 @@
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+
+    img {
+        width: 100%;
+        max-width: 200px; 
+    }
+
+    .title {
+        text-align: center;
+        h2 { margin: 0; color: var(--secondary); font-weight: 500; }
+        p { margin: 0; color: gray; font-size: 0.9em; }
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 384px;
+        justify-content: center;
+        gap: 8px; 
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 16px;
+
+        button {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>Tus Pedidos</h1>
+    
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+        @for (tab of statusTabs; track $index) {
+        <mat-tab [label]="tab.name">
+            <div class="table-container mat-elevation-z2">
+                
+                @if (filterByStatus(tab.value).length === 0) {
+                    <div class="empty-state">
+                        <p>No tienes órdenes en este estado.</p>
+                    </div>
+                } @else {
+                    <table mat-table [dataSource]="filterByStatus(tab.value)">
+                        
+                        <ng-container matColumnDef="date">
+                            <th mat-header-cell *matHeaderCellDef> Fecha </th>
+                            <td mat-cell *matCellDef="let element"> {{element.date | date:'short'}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="total">
+                            <th mat-header-cell *matHeaderCellDef> Total </th>
+                            <td mat-cell *matCellDef="let element"> {{element.total | currency}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="comments">
+                            <th mat-header-cell *matHeaderCellDef> Comentarios </th>
+                            <td mat-cell *matCellDef="let element"> {{element.comments || 'Sin comentarios'}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef> Estado </th>
+                            <td mat-cell *matCellDef="let element"> 
+                                <span class="badge status-{{element.status}}">
+                                    {{getStatusName(element.status)}}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                }
+            </div>
+        </mat-tab>
+        }
+    </mat-tab-group>
+</div>

@@ -1,0 +1,38 @@
+<section>
+    <img src="assets/logo.png" alt="AS Burger Logo" />
+    
+    <div class="title">
+        <h2>Registro de Cliente</h2>
+        <p>Crea tu cuenta para ordenar</p>
+    </div>
+
+    <form class="form" [formGroup]="formSignUp" (ngSubmit)="register()">
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre Completo</mat-label>
+            <input matInput type="text" formControlName="name" placeholder="Ej. Juan Pérez">
+            <mat-icon matPrefix>person</mat-icon>
+            <mat-error>Nombre requerido (mínimo 3 letras)</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Teléfono</mat-label>
+            <input matInput type="tel" formControlName="phone" placeholder="5551234567">
+            <mat-icon matPrefix>phone</mat-icon>
+            <mat-error>Ingresa solo números</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="'password'" formControlName="password">
+            <mat-icon matPrefix>lock</mat-icon>
+            <mat-error>Contraseña requerida (mínimo 6 caracteres)</mat-error>
+        </mat-form-field>
+
+        <div class="actions">
+            <button type="submit" class="button-primary">Registrarse</button>
+            <button type="button" class="button-secundary" [routerLink]="['/auth/sign-in']">Cancelar</button>
+        </div>
+
+    </form>
+</section>

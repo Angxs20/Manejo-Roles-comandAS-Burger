@@ -1,0 +1,38 @@
+.container {
+    padding: 2% 5%;
+    h1 {
+        color: var(--secondary); 
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+}
+.table-container {
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: white;
+    padding: 10px;
+}
+table {
+    width: 100%;
+}
+.empty-state {
+    padding: 40px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+    
+    &.status-0 { background-color: #e0e0e0; color: #333; }       /* Solicitada - Gris */
+    &.status-1 { background-color: #fff3cd; color: #856404; }    /* Cocina - Amarillo */
+    &.status-2 { background-color: #d4edda; color: #155724; }    /* Lista - Verde Claro */
+    &.status-3 { background-color: #cce5ff; color: #004085; }    /* Completada - Azul */
+    &.status-4 { background-color: #f8d7da; color: #721c24; }    /* Cancelada - Rojo */
+}
